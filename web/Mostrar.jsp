@@ -19,13 +19,13 @@
 
         <table border="1" width="100%">
             <tr>
-                <td> ID</td>
-                <td> TITULO</td>
-                <td> URL</td>
-                <td> TEXTO</td>
-                <td>FECHA</td>
+                <td><strong>ID</strong> </td>
+                <td><strong>TITULO</strong> </td>
+                <td><strong>URL</strong> </td>
+                <td><strong>TEXTO</strong> </td>
+                <td><strong>FECHA</strong></td>
                 
-                <td colspan=2>ACCIONES</td>
+                <td colspan=2></td>
             </tr>
             <c:forEach var="producto" items="${lista}">
                 <tr>
@@ -36,7 +36,7 @@
                     <td><c:out value="${producto.fecha}"/></td>
                     <td><a href="NoticiaController?action=showedit&id=<c:out value="${producto.id}" />">Editar</a></td>
                     <td><a href="NoticiaController?action=eliminar&id=<c:out value="${producto.id}"/>">Eliminar</a> </td>
-                    <td><a href="NoticiaController?action=eliminar&id=<c:out value="${producto.id}"/>">Comentar</a> </td>				
+                    <td><a href="NoticiaController?action=comentar&id=<c:out value="${producto.id}"/>">Comentar</a> </td>				
 
                 </tr>
             </c:forEach>

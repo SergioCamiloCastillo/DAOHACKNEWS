@@ -78,6 +78,9 @@ public class NoticiaController extends HttpServlet {
                 case "eliminar":
                     eliminar(request, response);
                     break;
+                    case "comentar":
+                    comentar(request, response);
+                    break;
                 default:
                     break;
             }
@@ -149,6 +152,13 @@ public class NoticiaController extends HttpServlet {
     }
 
     private void eliminar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        Noticia noticia = noticiaDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
+        noticiaDAO.eliminar(noticia);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        dispatcher.forward(request, response);
+
+    }
+    private void comentar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         Noticia noticia = noticiaDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
         noticiaDAO.eliminar(noticia);
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
