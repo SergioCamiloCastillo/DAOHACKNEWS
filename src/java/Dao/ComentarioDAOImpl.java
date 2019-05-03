@@ -26,14 +26,13 @@ public class ComentarioDAOImpl implements ComentarioDAO {
     // insertar artículo
     @Override
     public boolean insertarComentario(Comentario comentario) throws SQLException {
-        String sql = "INSERT INTO comentario (id, comentario, fechacomentario, noticia) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO comentario (id, comentario, fechacomentario) VALUES (?,?,?)";
         //String sql = "INSERT INTO noticia (id_noticia, titulo, url, texto, fecha) VALUES (?,?,?,?,?)";
 
         System.out.println(comentario.getId());
 
         System.out.println(comentario.getComentario());
         System.out.println(comentario.getFechaComentario());
-        System.out.println(comentario.getNoticia());
 
         con.conectar();
         connection = con.getJdbcConnection();
@@ -41,7 +40,6 @@ public class ComentarioDAOImpl implements ComentarioDAO {
         statement.setString(1, comentario.getId().toString());
         statement.setString(2, comentario.getComentario());
         statement.setString(3, comentario.getFechaComentario());
-        statement.setString(4, comentario.getNoticia());
 
         boolean rowInserted = statement.executeUpdate() > 0;
         statement.close();
