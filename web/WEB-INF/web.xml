@@ -4,9 +4,17 @@
         <servlet-name>ComentariosController</servlet-name>
         <servlet-class>Controlador.ComentariosController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PreguntaController</servlet-name>
+        <servlet-class>Controlador.PreguntaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ComentariosController</servlet-name>
         <url-pattern>/ComentariosController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PreguntaController</servlet-name>
+        <url-pattern>/PreguntaController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
