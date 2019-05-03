@@ -15,9 +15,9 @@ import java.util.List;
  */
 public interface NoticiaDAO {
 
-    public boolean insertar(Noticia articulo) throws SQLException;
+    public boolean insertar(Noticia noticia) throws SQLException;
 
-    public List<Noticia> listarArticulos() throws SQLException;
+    public List<Noticia> listarNoticias() throws SQLException;
 
     public Noticia obtenerPorId(int id) throws SQLException;
 

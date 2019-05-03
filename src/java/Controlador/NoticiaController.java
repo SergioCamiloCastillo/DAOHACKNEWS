@@ -126,7 +126,7 @@ public class NoticiaController extends HttpServlet {
 
     private void mostrar(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Mostrar.jsp");
-        List<Noticia> listaArticulos = noticiaDAO.listarArticulos();
+        List<Noticia> listaArticulos = noticiaDAO.listarNoticias();
         request.setAttribute("lista", listaArticulos);
         dispatcher.forward(request, response);
     }
@@ -159,9 +159,7 @@ public class NoticiaController extends HttpServlet {
 
     }
     private void comentar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        Noticia noticia = noticiaDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
-        noticiaDAO.eliminar(noticia);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/Comentar.jsp");
         dispatcher.forward(request, response);
 
     }

@@ -15,6 +15,15 @@
 		<tr>
 			<td align="center"><a href="NoticiaController?action=mostrar">Mostrar Noticia</a></td>
 		</tr>
+                <tr>
+			<td align="center"><a href="ComentariosController?action=mostrarComentarios">Mostrar Comentarios</a></td>
+		</tr>
+                <tr>
+			<td align="center"><a href="NoticiaController?action=comentar">Registrar Preguntas</a></td>
+		</tr>
+                <tr>
+			<td align="center"><a href="NoticiaController?action=comentar">Mostrar Preguntas</a></td>
+		</tr>
                 
 	</table>
 	

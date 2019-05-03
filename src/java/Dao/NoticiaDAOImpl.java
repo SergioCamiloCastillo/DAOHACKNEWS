@@ -25,6 +25,7 @@ public class NoticiaDAOImpl implements NoticiaDAO {
     @Override
     public boolean insertar(Noticia noticia) throws SQLException {
         String sql = "INSERT INTO noticia (id_noticia, titulo, url, texto, fecha) VALUES (?,?,?,?,?)";
+        //String sql = "INSERT INTO comentario (id, comentario, fechacomentario, noticia) VALUES (?,?,?,?)";
         //System.out.println(articulo.getDescripcion());
         con.conectar();
         connection = con.getJdbcConnection();
@@ -43,9 +44,9 @@ public class NoticiaDAOImpl implements NoticiaDAO {
 
     // listar todos los productos
     @Override
-    public List<Noticia> listarArticulos() throws SQLException {
+    public List<Noticia> listarNoticias() throws SQLException {
 
-        List<Noticia> listaArticulos = new ArrayList<Noticia>();
+        List<Noticia> listaNoticias = new ArrayList<Noticia>();
         String sql = "SELECT * FROM noticia";
         con.conectar();
         connection = con.getJdbcConnection();
@@ -59,11 +60,11 @@ public class NoticiaDAOImpl implements NoticiaDAO {
             String texto = resulSet.getString("texto");
             String fecha = resulSet.getString("fecha");
 
-            Noticia articulo = new Noticia(id, titulo, url, texto, fecha);
-            listaArticulos.add(articulo);
+            Noticia noticia = new Noticia(id, titulo, url, texto, fecha);
+            listaNoticias.add(noticia);
         }
         con.desconectar();
-        return listaArticulos;
+        return listaNoticias;
     }
 
     // obtener por id

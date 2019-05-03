@@ -24,19 +24,19 @@
                 <td><strong>URL</strong> </td>
                 <td><strong>TEXTO</strong> </td>
                 <td><strong>FECHA</strong></td>
-                
+
                 <td colspan=2></td>
             </tr>
-            <c:forEach var="producto" items="${lista}">
+            <c:forEach var="noticias" items="${lista}">
                 <tr>
-                    <td><c:out value="${producto.id}"/></td>
-                    <td><c:out value="${producto.titulo}"/></td>
-                    <td><c:out value="${producto.texto}"/></td>
-                    <td><c:out value="${producto.url}"/></td>
-                    <td><c:out value="${producto.fecha}"/></td>
-                    <td><a href="NoticiaController?action=showedit&id=<c:out value="${producto.id}" />">Editar</a></td>
-                    <td><a href="NoticiaController?action=eliminar&id=<c:out value="${producto.id}"/>">Eliminar</a> </td>
-                    <td><a href="NoticiaController?action=comentar&id=<c:out value="${producto.id}"/>">Comentar</a> </td>				
+                    <td><c:out value="${noticias.id}"/></td>
+                    <td><c:out value="${noticias.titulo}"/></td>
+                    <td><c:out value="${noticias.texto}"/></td>
+                    <td><c:out value="${noticias.url}"/></td>
+                    <td><c:out value="${noticias.fecha}"/></td>
+                    <td><a href="NoticiaController?action=showedit&id=<c:out value="${noticias.id}" />">Editar</a></td>
+                    <td><a href="NoticiaController?action=eliminar&id=<c:out value="${noticias.id}"/>">Eliminar</a> </td>
+                    <td><a href="ComentariosController?action=comentar&id=<c:out value="${noticias.id}"/>">Comentar</a> </td>				
 
                 </tr>
             </c:forEach>
