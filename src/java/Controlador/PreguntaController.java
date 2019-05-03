@@ -64,7 +64,7 @@ public class PreguntaController extends HttpServlet {
                 case "registrarPregunta":
                     registrarPregunta(request, response);
                     break;
-                case "mostrarPregunta":
+                case "mostrarPreguntas":
                     mostrarPregunta(request, response);
                     break;
                 case "showedit":
@@ -73,7 +73,7 @@ public class PreguntaController extends HttpServlet {
                 case "editarPregunta":
                     editarPregunta(request, response);
                     break;
-                case "eliminarPregunta":
+                case "eliminar":
                     eliminarPregunta(request, response);
                     break;
                     
@@ -127,8 +127,8 @@ public class PreguntaController extends HttpServlet {
 
     private void mostrarPregunta(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/MostrarPreguntas.jsp");
-        List<Comentario> listaComentarios = comentarioDAO.listarComentario();
-        request.setAttribute("comentario", listaComentarios);
+        List<Pregunta> listaPregunta = preguntaDAO.listarPregunta();
+        request.setAttribute("pregunta", listaPregunta);
         
         dispatcher.forward(request, response);
     }
@@ -136,10 +136,10 @@ public class PreguntaController extends HttpServlet {
     private void showEditar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 
         //Integer id = Integer.parseInt(request.getParameter("id"));
-        Comentario comentario = preguntaDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
-        request.setAttribute("comentario", comentario);
+        Pregunta pregunta = preguntaDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
+        request.setAttribute("pregunta", pregunta);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/EditarComentario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/EditarPregunta.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -147,16 +147,18 @@ public class PreguntaController extends HttpServlet {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         String fecha = dateFormat.format(date);
-        Comentario comentario = new Comentario(Integer.parseInt(request.getParameter("editarId")), request.getParameter("editarComentario"), fecha);
-        preguntaDAO.actualizarComentario(comentario);
+        Pregunta pregunta = new Pregunta(Integer.parseInt(request.getParameter("editarId")), request.getParameter("editarPregunta"), fecha);
+        System.out.println(Integer.parseInt(request.getParameter("editarId")));
+        System.out.println(request.getParameter("editarPregunta"));
+        preguntaDAO.actualizarPregunta(pregunta);
         index(request, response);
 
     }
 
     private void eliminarPregunta(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         System.out.println("he lleago hps");
-        Comentario comentario = comentarioDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
-        comentarioDAO.eliminarComentario(comentario);
+        Pregunta pregunta = preguntaDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
+        preguntaDAO.eliminarPregunta(pregunta);
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
 

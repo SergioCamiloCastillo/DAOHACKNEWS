@@ -95,14 +95,14 @@ public class PreguntaDAOImpl implements PreguntaDAO{
     // actualizar
     public boolean actualizarPregunta(Pregunta pregunta) throws SQLException {
         boolean rowActualizar = false;
-        String sql = "UPDATE pregunta SET pregunta=?,fecha=? WHERE id = ?";
+        String sql = "UPDATE pregunta SET pregunta=?, fecha=? WHERE id = ?";
         con.conectar();
         connection = con.getJdbcConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, pregunta.getId().toString());
-        statement.setString(2, pregunta.getPregunta());
-        statement.setString(3, pregunta.getFecha());
         
+        statement.setString(1, pregunta.getPregunta());
+        statement.setString(2, pregunta.getFecha());
+        statement.setString(3, pregunta.getId().toString());
 
         rowActualizar = statement.executeUpdate() > 0;
         statement.close();
@@ -113,7 +113,7 @@ public class PreguntaDAOImpl implements PreguntaDAO{
     //eliminar
     public boolean eliminarPregunta(Pregunta pregunta) throws SQLException {
         boolean rowEliminar = false;
-        String sql = "DELETE FROM pregunta WHERE id+=?";
+        String sql = "DELETE FROM pregunta WHERE id=?";
         con.conectar();
         connection = con.getJdbcConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
