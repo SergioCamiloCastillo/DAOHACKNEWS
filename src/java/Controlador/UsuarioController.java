@@ -6,6 +6,7 @@
 package Controlador;
 
 import Dao.PreguntaDAOImpl;
+import Dao.UsuarioDAOImpl;
 import Modelo.Pregunta;
 import Modelo.Usuario;
 import java.io.IOException;
@@ -13,6 +14,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -28,13 +30,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class UsuarioController extends HttpServlet {
 
-     PreguntaDAOImpl preguntaDAO;
+     UsuarioDAOImpl usuarioDAO;
 
     public void init() {
 
         try {
 
-            preguntaDAO = new PreguntaDAOImpl("jdbc:mysql://localhost:3306/hacknews", "root", "");
+            usuarioDAO = new UsuarioDAOImpl("jdbc:mysql://localhost:3306/hacknews", "root", "");
         } catch (Exception e) {
             // TODO: handle exception
         }
@@ -57,8 +59,8 @@ public class UsuarioController extends HttpServlet {
                 case "index":
                     index(request, response);
                     break;
-                case "preguntar":
-                    preguntar(request, response);
+                case "ingresarSistema":
+                    ingresarSistema(request, response);
                     break;
                 case "registrarUsuario":
                     registrarUsuario(request, response);
@@ -102,6 +104,26 @@ public class UsuarioController extends HttpServlet {
         //mostrar(request, response);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, response);
+    }
+    private void ingresarSistema(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        System.out.println("llego a registrar "); 
+        
+            
+            List<Usuario> datos = new ArrayList<Usuario>();
+
+            
+                String usuario = request.getParameter("usuario");
+                String contra = request.getParameter("clave");
+                datos = usuarioDAO.accesar(usuario, contra);
+                if (datos.size() > 0) {
+                    request.setAttribute("datos", datos);
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("fail", "No hay acceso!");
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                }
+
+            
     }
 
     private void registrarUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {

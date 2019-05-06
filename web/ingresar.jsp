@@ -13,11 +13,11 @@
     </head>
     <body>
         <h1>Ingresar al sistema</h1>
-        <form action='' method="POST">
+        <form action='UsuarioController?action=ingresarSistema' method="POST">
             Usuario: 
             <input type='text' name='usuario' id='usuario'></br></br>
             Clave: 
-            <input type='text' name='clave' id='usuario'></br></br>
+            <input type='text' name='clave' id='clave'></br></br>
             <input type="submit" name="registrar" value="Ingresar"> </br></br>
 
         </form>

@@ -1,3 +1,6 @@
+<%@page import="Modelo.Usuario"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -30,6 +33,31 @@
 
         </table>
 
+  <%  
+            HttpSession sesion = request.getSession();
+            
+            
+             List<Usuario> datos = new ArrayList<Usuario>();
+                if(request.getAttribute("fail")!=null){
+                    out.print("<script>alert('Ususario o contra erroneos!');</script>   ");
+                }
+                if(request.getAttribute("datos")!=null){
+                    datos = (List<Usuario>)request.getAttribute("datos");
+                    String nombrecompleto="";
+                    int nivel=0;
+                    for(Usuario u : datos){
+                        nombrecompleto = u.getNombrecompleto();
+                        nivel = u.getNivel();
+                    }
+                    sesion.setAttribute("usuario", nombrecompleto);
+                    sesion.setAttribute("nivel",nivel);
+                    response.sendRedirect("vistaPersona.jsp"); 
+                }
+                if(request.getParameter("cerrar")!=null){
+                    sesion.invalidate();
+                    response.sendRedirect("index.jsp");
+                }
 
+        %>
     </body>
 </html>

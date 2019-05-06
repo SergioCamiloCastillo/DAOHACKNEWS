@@ -1,10 +1,10 @@
-
 package Dao;
 
 import Modelo.Conexion;
 import Modelo.Pregunta;
 import Modelo.Usuario;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +16,8 @@ import java.util.List;
  *
  * @author User
  */
-public class UsuarioDAOImpl implements UsuarioDAO{
+public class UsuarioDAOImpl implements UsuarioDAO {
+
     private Conexion con;
     private Connection connection;
 
@@ -26,24 +27,48 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 
     // insertar artículo
     @Override
-    public boolean insertar(Usuario usuario) throws SQLException {
+    public List<Usuario> accesar(String usuario, String contra) throws SQLException {
+        List<Usuario> datos = new ArrayList<>();
+        Connection conn;
+        PreparedStatement pst;
+        ResultSet rs;
+        String sql = "select nombre_completo, nivelUsuario from usuarios "
+                + "where usuario='" + usuario + "' and contra='" + contra
+                + "'";
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/tutorial", "root", "");
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                datos.add(new Usuario(rs.getString("nombre_completo"),
+                        rs.getInt("nivelUsuario")));
+            }
+            conn.close();
+        } catch (ClassNotFoundException | SQLException e) {
+
+        }
+        return datos;
+    }
+
+    /*public boolean ingresarUsuario(Usuario usuario) throws SQLException {
         String sql = "INSERT INTO pregunta (id, pregunta, fecha) VALUES (?,?,?)";
         //String sql = "INSERT INTO comentario (id, comentario, fechacomentario, noticia) VALUES (?,?,?,?)";
         //System.out.println(articulo.getDescripcion());
         con.conectar();
         connection = con.getJdbcConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, pregunta.getId().toString());
-        statement.setString(2, pregunta.getPregunta());
-        statement.setString(3, pregunta.getFecha());
+        statement.setString(1, usuario.getId().toString());
+        statement.setString(2, usuario.getUsuario());
+        statement.setString(3, usuario.getFecha());
         
 
         boolean rowInserted = statement.executeUpdate() > 0;
         statement.close();
         con.desconectar();
         return rowInserted;
-    }
-
+    }*/
     // listar todos los productos
     @Override
     public List<Usuario> listarUsuarios() throws SQLException {
@@ -59,7 +84,6 @@ public class UsuarioDAOImpl implements UsuarioDAO{
             int id = resulSet.getInt("id");
             String preguntas = resulSet.getString("pregunta");
             String fecha = resulSet.getString("fecha");
-            
 
             Pregunta pregunta = new Pregunta(id, preguntas, fecha);
             listaPreguntas.add(pregunta);
@@ -95,7 +119,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         con.conectar();
         connection = con.getJdbcConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
-        
+
         statement.setString(1, pregunta.getPregunta());
         statement.setString(2, pregunta.getFecha());
         statement.setString(3, pregunta.getId().toString());
@@ -122,5 +146,4 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         return rowEliminar;
     }
 
-    
 }

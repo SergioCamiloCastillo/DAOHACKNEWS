@@ -1,24 +1,41 @@
-
 package Modelo;
 
-
 public class Usuario {
-    private Integer id;
-    private String usuario;
-    private String clave;
 
-    public Usuario(Integer id, String usuario, String clave) {
-        this.id = id;
-        this.usuario = usuario;
-        this.clave = clave;
+    private int id;
+    private String nombrecompleto;
+    private String usuario;
+    private String contra;
+    private int nivel;
+
+    public Usuario(String nombrecompleto, int nivel) {
+
+        this.nombrecompleto = nombrecompleto;
+        this.nivel = nivel;
     }
 
-    public Integer getId() {
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public String getNombrecompleto() {
+        return nombrecompleto;
+    }
+
+    public void setNombrecompleto(String nombrecompleto) {
+        this.nombrecompleto = nombrecompleto;
     }
 
     public String getUsuario() {
@@ -29,13 +46,12 @@ public class Usuario {
         this.usuario = usuario;
     }
 
-    public String getClave() {
-        return clave;
+    public String getContra() {
+        return contra;
     }
 
-    public void setClave(String clave) {
-        this.clave = clave;
+    public void setContra(String contra) {
+        this.contra = contra;
     }
-    
-    
+
 }

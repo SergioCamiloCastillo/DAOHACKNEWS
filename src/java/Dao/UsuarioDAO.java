@@ -16,7 +16,7 @@ import java.util.List;
  */
 public interface UsuarioDAO {
     
-     public boolean insertar(Usuario usuario) throws SQLException;
+     public List<Usuario> accesar(String usuario, String contra) throws SQLException;
 
     public List<Usuario> listarUsuarios() throws SQLException;
 
