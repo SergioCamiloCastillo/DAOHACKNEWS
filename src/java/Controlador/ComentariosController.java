@@ -29,6 +29,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ComentariosController extends HttpServlet {
 //private static final long serialVersionUID = 1L;
+
     ComentarioDAOImpl comentarioDAO;
 
     public void init() {
@@ -48,6 +49,7 @@ public class ComentariosController extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -57,6 +59,9 @@ public class ComentariosController extends HttpServlet {
             switch (action) {
                 case "index":
                     index(request, response);
+                    break;
+                case "indexx":
+                    indexx(request, response);
                     break;
                 case "comentar":
                     comentar(request, response);
@@ -76,6 +81,9 @@ public class ComentariosController extends HttpServlet {
                 case "eliminar":
                     eliminarComentario(request, response);
                     break;
+                case "mostrarComentariosPersona":
+                    mostrarComentariosPersona(request, response);
+                    break;
                     
                 default:
                     break;
@@ -93,7 +101,7 @@ public class ComentariosController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         System.out.println("Hola Servlet..");
         doGet(request, response);
@@ -102,6 +110,12 @@ public class ComentariosController extends HttpServlet {
     private void index(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         //mostrar(request, response);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/vistaUsuario.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    private void indexx(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        //mostrar(request, response);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -114,9 +128,9 @@ public class ComentariosController extends HttpServlet {
 
         Comentario comentario = new Comentario(id, request.getParameter("comentario"), fecha);
         comentarioDAO.insertarComentario(comentario);
-        
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/vistaUsuario.jsp");
-        dispatcher.forward(request, response);     
+        dispatcher.forward(request, response);
 
     }
 
@@ -129,7 +143,14 @@ public class ComentariosController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/MostrarComentarios.jsp");
         List<Comentario> listaComentarios = comentarioDAO.listarComentario();
         request.setAttribute("comentario", listaComentarios);
-        
+
+        dispatcher.forward(request, response);
+    }
+    private void mostrarComentariosPersona(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/mostrarComentarioPersona.jsp");
+        List<Comentario> listaComentarios = comentarioDAO.listarComentario();
+        request.setAttribute("comentario", listaComentarios);
+
         dispatcher.forward(request, response);
     }
 
@@ -161,7 +182,7 @@ public class ComentariosController extends HttpServlet {
         dispatcher.forward(request, response);
 
     }
-    
+
     @Override
     public String getServletInfo() {
         return "Short description";

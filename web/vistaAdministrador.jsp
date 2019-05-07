@@ -6,6 +6,11 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
 <% 
 
 HttpSession ses = request.getSession();
@@ -56,34 +61,7 @@ HttpSession ses = request.getSession();
              <input type="submit" name="btnReiniciar" value="Reiniciar"> 
         </form>
     <hr>  
-        <!-- DISEÑAMOS LA TABLA EN HTML Y LE METEMOS CODIGO JSP -->
-        <table border="1px">
-             <!-- PRIMERO LOS ENCABEZADOS-->
-            <tr>
-            <td>ID </td>  <td>NOMBRES</td>  <td>APELLIDOS </td>  <td> EDAD</td><td> ACCION</td>
-            </tr>
-            <!-- AHORA TODO EL CONTENIDO DE LA TABLA-->
-        <% 
-          //ESTOS IF SON PAR VER SI SE RECIBEN ATRIBUTOS DEL SERVLET
-        //SE ESPERA EL ATRIBUTO FILTRO SI ACASO SE HA FILTRADO
-        //SE ESPERA EL ATRIBUTO REINICIO SI ACASO DE REINICIO EL FILTRO
-        //DE NO RECIBIR ATRIBUTOS, SOLO CARGA LA TABLA(LLAMA A CONSULTAR)
-          if(request.getAttribute("filtro")!=null){
-              //datos = (List<Persona>) request.getAttribute("filtro");
-          }else  if(request.getAttribute("reinicio")!=null){
-                  //datos = dao.consultar();
-          }else{
-              //datos = dao.consultar();
-          }
-          
-          //ESTE BUCLE ES PARA RECORRER EL RESULTADO DE LLAMAR A CONSULTAR          
-            //for(Persona p : datos){
-       %>   
-             
-       <% 
-           // }   
-       %>
-        </table>
+       
     </center>   
     </body>
 </html>

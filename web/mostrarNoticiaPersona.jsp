@@ -18,7 +18,7 @@
         <h1>Lista Noticias</h1>
         <table>
             <tr>
-                <td><a href="NoticiaController?action=index" >Ir al menú</a> </td>
+                <td><a href="NoticiaController?action=indexx" >Ir al menú</a> </td>
             </tr>
         </table>
 
@@ -39,9 +39,7 @@
                     <td><c:out value="${noticias.texto}"/></td>
                     <td><c:out value="${noticias.url}"/></td>
                     <td><c:out value="${noticias.fecha}"/></td>
-                    <td><a href="NoticiaController?action=showedit&id=<c:out value="${noticias.id}" />">Editar</a></td>
-                    <td><a href="NoticiaController?action=eliminar&id=<c:out value="${noticias.id}"/>">Eliminar</a> </td>
-                    <td><a href="ComentariosController?action=comentar&id=<c:out value="${noticias.id}"/>">Comentar</a> </td>				
+                    				
 
                 </tr>
             </c:forEach>

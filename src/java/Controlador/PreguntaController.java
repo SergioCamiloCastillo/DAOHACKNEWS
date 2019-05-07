@@ -29,6 +29,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class PreguntaController extends HttpServlet {
 //private static final long serialVersionUID = 1L;
+
     PreguntaDAOImpl preguntaDAO;
 
     public void init() {
@@ -48,6 +49,7 @@ public class PreguntaController extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -58,6 +60,9 @@ public class PreguntaController extends HttpServlet {
                 case "index":
                     index(request, response);
                     break;
+                case "indexx":
+                    indexx(request, response);
+                    break;
                 case "preguntar":
                     preguntar(request, response);
                     break;
@@ -66,6 +71,9 @@ public class PreguntaController extends HttpServlet {
                     break;
                 case "mostrarPreguntas":
                     mostrarPregunta(request, response);
+                    break;
+                case "mostrarPreguntasPersona":
+                    mostrarPreguntaPersona(request, response);
                     break;
                 case "showedit":
                     showEditar(request, response);
@@ -76,7 +84,7 @@ public class PreguntaController extends HttpServlet {
                 case "eliminar":
                     eliminarPregunta(request, response);
                     break;
-                    
+
                 default:
                     break;
             }
@@ -93,7 +101,7 @@ public class PreguntaController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         System.out.println("Hola Servlet..");
         doGet(request, response);
@@ -102,6 +110,11 @@ public class PreguntaController extends HttpServlet {
     private void index(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         //mostrar(request, response);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/vistaUsuario.jsp");
+        dispatcher.forward(request, response);
+    }
+     private void indexx(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        //mostrar(request, response);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -114,9 +127,9 @@ public class PreguntaController extends HttpServlet {
 
         Pregunta pregunta = new Pregunta(id, request.getParameter("pregunta"), fecha);
         preguntaDAO.insertarPregunta(pregunta);
-        
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/vistaUsuario.jsp");
-        dispatcher.forward(request, response);     
+        dispatcher.forward(request, response);
 
     }
 
@@ -129,7 +142,15 @@ public class PreguntaController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/MostrarPreguntas.jsp");
         List<Pregunta> listaPregunta = preguntaDAO.listarPregunta();
         request.setAttribute("pregunta", listaPregunta);
-        
+
+        dispatcher.forward(request, response);
+    }
+
+    private void mostrarPreguntaPersona(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/mostrarPreguntasPersona.jsp");
+        List<Pregunta> listaPregunta = preguntaDAO.listarPregunta();
+        request.setAttribute("pregunta", listaPregunta);
+
         dispatcher.forward(request, response);
     }
 
@@ -163,7 +184,7 @@ public class PreguntaController extends HttpServlet {
         dispatcher.forward(request, response);
 
     }
-    
+
     @Override
     public String getServletInfo() {
         return "Short description";

@@ -3,6 +3,11 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
@@ -11,6 +16,7 @@
     </head>
     <body>
         <h1>HackNews</h1>
+        
         <table border="1" width="50%" align="center">
             <tr>
                 <td align="center"><a href="ingresar.jsp">Login</a></td>			
@@ -20,11 +26,11 @@
                 <td align="center"><a href="NoticiaController?action=mostrarNoticiaPersona">Mostrar Noticia</a></td>
             </tr>
             <tr>
-                <td align="center"><a href="ComentariosController?action=mostrarComentarios">Mostrar Comentarios</a></td>
+                <td align="center"><a href="ComentariosController?action=mostrarComentariosPersona">Mostrar Comentarios</a></td>
             </tr>
 
             <tr>
-                <td align="center"><a href="PreguntaController?action=mostrarPreguntas">Mostrar Preguntas</a></td>
+                <td align="center"><a href="PreguntaController?action=mostrarPreguntasPersona">Mostrar Preguntas</a></td>
             </tr>
 
         </table>

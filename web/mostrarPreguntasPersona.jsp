@@ -22,7 +22,7 @@
          <h1>Lista Preguntas</h1>
         <table>
             <tr>
-                <td><a href="PreguntaController?action=index" >Ir al menú</a> </td>
+                <td><a href="PreguntaController?action=indexx" >Ir al menú</a> </td>
             </tr>
         </table>
 
@@ -40,8 +40,7 @@
                     <td><c:out value="${preg.pregunta}"/></td>
                     <td><c:out value="${preg.fecha}"/></td>
                     
-                    <td><a href="PreguntaController?action=showedit&id=<c:out value="${preg.id}"/>">Editar</a></td>
-                    <td><a href="PreguntaController?action=eliminar&id=<c:out value="${preg.id}"/>">Eliminar</a> </td>
+                    
 
                 </tr>
             </c:forEach>

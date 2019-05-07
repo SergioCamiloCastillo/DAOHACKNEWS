@@ -60,6 +60,9 @@ public class NoticiaController extends HttpServlet {
                 case "index":
                     index(request, response);
                     break;
+                    case "indexx":
+                    indexx(request, response);
+                    break;
                 case "nuevo":
                     nuevo(request, response);
                     break;
@@ -83,6 +86,9 @@ public class NoticiaController extends HttpServlet {
                     break;
                 case "buscar":
                     buscar(request, response);
+                    break;
+                    case "mostrarNoticiaPersona":
+                    mostrarNoticiaPersona(request, response);
                     break;
                 default:
                     break;
@@ -108,6 +114,11 @@ public class NoticiaController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/vistaUsuario.jsp");
         dispatcher.forward(request, response);
     }
+    private void indexx(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        //mostrar(request, response);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+        dispatcher.forward(request, response);
+    }
 
     private void registrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 
@@ -129,6 +140,12 @@ public class NoticiaController extends HttpServlet {
 
     private void mostrar(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Mostrar.jsp");
+        List<Noticia> listaArticulos = noticiaDAO.listarNoticias();
+        request.setAttribute("lista", listaArticulos);
+        dispatcher.forward(request, response);
+    }
+    private void mostrarNoticiaPersona(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/mostrarNoticiaPersona.jsp");
         List<Noticia> listaArticulos = noticiaDAO.listarNoticias();
         request.setAttribute("lista", listaArticulos);
         dispatcher.forward(request, response);

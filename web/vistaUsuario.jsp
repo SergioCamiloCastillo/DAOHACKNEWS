@@ -4,6 +4,11 @@
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true" %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
 
 <%
 
@@ -41,20 +46,10 @@ ESTE CODIGO DEBE USARSE SIN FINES LUCRATIVOS Y HACER REFERENCIA AL AUTOR
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Vista Pesona</title>
-        <!--ESTE JAVASCRIPT ES PARA CARGAR DE LA TABLA A LOS TEXTOS DEL FORMULARIO -->
-        <script lang="JavaScript">
-            function cargar(id, nombres, apellidos, edad) {
-                document.formPersona.txtId.value = id;
-                document.formPersona.txtNombres.value = nombres;
-                document.formPersona.txtApellidos.value = apellidos;
-                document.formPersona.txtEdad.value = edad;
-            }
-        </script>
+        
     </head>
 
-    <%         //DAOPersona dao = new DAOPersona();
-        //List<Persona> datos= new ArrayList();         
-    %>
+  
 
     <body>
 
