@@ -124,7 +124,7 @@ public class ComentariosController extends HttpServlet {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         String fecha = dateFormat.format(date);
-        Integer id = Integer.parseInt(request.getParameter("txtid"));
+        //Integer id = Integer.parseInt(request.getParameter("txtid"));
 
         Comentario comentario = new Comentario(0, request.getParameter("comentario"), fecha);
         comentarioDAO.insertarComentario(comentario);
