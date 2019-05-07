@@ -15,44 +15,43 @@
             <tr>
                 <td align="center"><a href="ingresar.jsp">Login</a></td>			
             </tr>
-           
+
             <tr>
                 <td align="center"><a href="NoticiaController?action=mostrarNoticiaPersona">Mostrar Noticia</a></td>
             </tr>
             <tr>
                 <td align="center"><a href="ComentariosController?action=mostrarComentarios">Mostrar Comentarios</a></td>
             </tr>
-            
+
             <tr>
                 <td align="center"><a href="PreguntaController?action=mostrarPreguntas">Mostrar Preguntas</a></td>
             </tr>
 
         </table>
 
-  <%  
+        <%
             HttpSession sesion = request.getSession();
-            
-            
-             List<Usuario> datos = new ArrayList<Usuario>();
-                if(request.getAttribute("fail")!=null){
-                    out.print("<script>alert('El usuario y/o la contraseña no se encuentran en la base de datos');</script>   ");
+
+            List<Usuario> datos = new ArrayList<Usuario>();
+            if (request.getAttribute("fail") != null) {
+                out.print("<script>alert('El usuario y/o la contraseña no se encuentran en la base de datos');</script>   ");
+            }
+            if (request.getAttribute("datos") != null) {
+                datos = (List<Usuario>) request.getAttribute("datos");
+                String usuario = "";
+                int nivel = 0;
+                for (Usuario u : datos) {
+                    usuario = u.getUsuario();
+                    nivel = u.getNivel();
                 }
-                if(request.getAttribute("datos")!=null){
-                    datos = (List<Usuario>)request.getAttribute("datos");
-                    String usuario="";
-                    int nivel=0;
-                    for(Usuario u : datos){
-                        usuario= u.getUsuario();
-                        nivel = u.getNivel();
-                    }
-                    sesion.setAttribute("usuario", usuario);
-                    sesion.setAttribute("nivel",nivel);
-                    response.sendRedirect("vistaUsuario.jsp"); 
-                }
-                if(request.getParameter("cerrar")!=null){
-                    sesion.invalidate();
-                    response.sendRedirect("index.jsp");
-                }
+                sesion.setAttribute("usuario", usuario);
+                sesion.setAttribute("nivel", nivel);
+                response.sendRedirect("vistaUsuario.jsp");
+            }
+            if (request.getParameter("cerrar") != null) {
+                sesion.invalidate();
+                response.sendRedirect("index.jsp");
+            }
 
         %>
     </body>

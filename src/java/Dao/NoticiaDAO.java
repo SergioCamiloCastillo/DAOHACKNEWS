@@ -25,4 +25,6 @@ public interface NoticiaDAO {
 
     public boolean eliminar(Noticia noticia) throws SQLException;
 
+    public List<Noticia> buscar(String buscar) throws SQLException;
+
 }

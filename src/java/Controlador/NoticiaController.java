@@ -78,8 +78,11 @@ public class NoticiaController extends HttpServlet {
                 case "eliminar":
                     eliminar(request, response);
                     break;
-                    case "comentar":
+                case "comentar":
                     comentar(request, response);
+                    break;
+                case "buscar":
+                    buscar(request, response);
                     break;
                 default:
                     break;
@@ -131,6 +134,15 @@ public class NoticiaController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    private void buscar(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/mostrarNoticia.jsp");
+        List<Noticia> listaArticulos = noticiaDAO.buscar(request.getParameter("buscar"));
+        request.setAttribute("filtro", listaArticulos);
+        dispatcher.forward(request, response);
+
+       
+    }
+
     private void showEditar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 
         //Integer id = Integer.parseInt(request.getParameter("id"));
@@ -158,6 +170,7 @@ public class NoticiaController extends HttpServlet {
         dispatcher.forward(request, response);
 
     }
+
     private void comentar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Comentar.jsp");
         dispatcher.forward(request, response);

@@ -53,8 +53,8 @@ ESTE CODIGO DEBE USARSE SIN FINES LUCRATIVOS Y HACER REFERENCIA AL AUTOR
     </head>
 
     <%         //DAOPersona dao = new DAOPersona();
-         //List<Persona> datos= new ArrayList();         
-%>
+        //List<Persona> datos= new ArrayList();         
+    %>
 
     <body>
 
@@ -87,15 +87,15 @@ ESTE CODIGO DEBE USARSE SIN FINES LUCRATIVOS Y HACER REFERENCIA AL AUTOR
 
         </table>
         </br></br>
-        <form  name="formPersona" method="POST" action="SERVPersona">
+        <form action="NoticiaController?action=buscar" method="post">
 
-            Buscar Noticia: <input type="text" name="txtCriterio">
-           
-            <input type="submit" name="btnFiltrar" value="Filtrar"> 
-           
+            Buscar Noticia: <input type="text" name="buscar">
+
+            <input type="submit"  value="Buscar"> 
+
         </form>
         <hr>  
-
+        
     </center>     
 </body>
 

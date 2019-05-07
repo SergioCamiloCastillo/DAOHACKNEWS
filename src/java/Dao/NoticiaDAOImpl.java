@@ -10,7 +10,7 @@ import java.util.List;
 
 import Modelo.Noticia;
 import Modelo.Conexion;
-
+import java.sql.DriverManager;
 
 public class NoticiaDAOImpl implements NoticiaDAO {
 
@@ -121,6 +121,30 @@ public class NoticiaDAOImpl implements NoticiaDAO {
         con.desconectar();
 
         return rowEliminar;
+    }
+
+    @Override
+    public List<Noticia> buscar(String buscar) throws SQLException {
+         List<Noticia> listarNoticia = new ArrayList<Noticia>();
+       String sql = "select * from noticia where titulo like '%" + buscar + "%'";
+        con.conectar();
+        connection = con.getJdbcConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resulSet = statement.executeQuery(sql);
+
+        while (resulSet.next()) {
+            int id = resulSet.getInt("id_noticia");
+            String titulo = resulSet.getString("titulo");
+            String url = resulSet.getString("url");
+            String texto = resulSet.getString("texto");
+            String fecha = resulSet.getString("fecha");
+
+            Noticia noticia = new Noticia(id, titulo, url, texto, fecha);
+            listarNoticia.add(noticia);
+        }
+        con.desconectar();
+        return listarNoticia;
+
     }
 
 }
