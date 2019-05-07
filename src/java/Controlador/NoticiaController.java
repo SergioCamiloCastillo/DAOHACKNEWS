@@ -102,7 +102,7 @@ public class NoticiaController extends HttpServlet {
 
     private void index(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         //mostrar(request, response);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/vistaUsuario.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -115,7 +115,7 @@ public class NoticiaController extends HttpServlet {
         Noticia noticia = new Noticia(id, request.getParameter("txtTitulo"), request.getParameter("txtUrl"), request.getParameter("txtTexto"), fecha);
         noticiaDAO.insertar(noticia);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/vistaUsuario.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -154,7 +154,7 @@ public class NoticiaController extends HttpServlet {
     private void eliminar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         Noticia noticia = noticiaDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
         noticiaDAO.eliminar(noticia);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("vistaUsuario.jsp");
         dispatcher.forward(request, response);
 
     }

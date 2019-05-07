@@ -101,7 +101,7 @@ public class ComentariosController extends HttpServlet {
 
     private void index(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         //mostrar(request, response);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/vistaUsuario.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -115,7 +115,7 @@ public class ComentariosController extends HttpServlet {
         Comentario comentario = new Comentario(id, request.getParameter("comentario"), fecha);
         comentarioDAO.insertarComentario(comentario);
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/vistaUsuario.jsp");
         dispatcher.forward(request, response);     
 
     }
@@ -157,7 +157,7 @@ public class ComentariosController extends HttpServlet {
         System.out.println("he lleago hps");
         Comentario comentario = comentarioDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
         comentarioDAO.eliminarComentario(comentario);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("vistaUsuario.jsp");
         dispatcher.forward(request, response);
 
     }

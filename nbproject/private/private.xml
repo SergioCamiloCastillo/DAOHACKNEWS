@@ -3,31 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/web/Comentar.jsp</file>
+            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Modelo/Usuario.java</file>
             <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Dao/PreguntaDAOImpl.java</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/web/Editar.jsp</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/web/EditarComentario.jsp</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/web/RegistrarPregunta.jsp</file>
+            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Controlador/UsuarioController.java</file>
+            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/web/vistaPersona.jsp</file>
+            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/web/ingresar.jsp</file>
             <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/web/Mostrar.jsp</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Controlador/PreguntaController.java</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Modelo/Comentario.java</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/web/MostrarComentarios.jsp</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Dao/NoticiaDAOImpl.java</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Controlador/ComentariosController.java</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Dao/NoticiaDAO.java</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Modelo/Pregunta.java</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/web/Registrar.jsp</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/web/META-INF/context.xml</file>
             <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Modelo/Conexion.java</file>
+            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Dao/UsuarioDAOImpl.java</file>
             <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/web/index.jsp</file>
+            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/web/RegistrarUsuario.jsp</file>
             <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Dao/PreguntaDAO.java</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Modelo/Noticia.java</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/web/MostrarPreguntas.jsp</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Dao/ComentarioDAOImpl.java</file>
             <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Controlador/NoticiaController.java</file>
-            <file>file:/C:/Users/User/Documents/NetbeansProjects/DAOHACKNEWS/src/java/Dao/ComentarioDAO.java</file>
         </group>
     </open-files>
 </project-private>

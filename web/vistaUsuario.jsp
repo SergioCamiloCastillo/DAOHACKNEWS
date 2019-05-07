@@ -67,15 +67,28 @@ ESTE CODIGO DEBE USARSE SIN FINES LUCRATIVOS Y HACER REFERENCIA AL AUTOR
     <center>
         <!-- EL FORMULARIO PARA INGRESO DE DADTOS -->
         <h2>Formulario de Registro</h2>
+        <tr>
+                <table border="1" width="50%" align="center">
+           
+            <tr>
+                <td align="center"><a href="NoticiaController?action=nuevo">Registrar Noticia</a></td>			
+            </tr>
+            <tr>
+                <td align="center"><a href="NoticiaController?action=mostrar">Mostrar Noticia</a></td>
+            </tr>
+            <tr>
+                <td align="center"><a href="ComentariosController?action=mostrarComentarios">Mostrar Comentarios</a></td>
+            </tr>
+            <tr>
+                <td align="center"><a href="PreguntaController?action=preguntar">Registrar Preguntas</a></td>
+            </tr>
+            <tr>
+                <td align="center"><a href="PreguntaController?action=mostrarPreguntas">Mostrar Preguntas</a></td>
+            </tr>
+
+        </table>
         <form  name="formPersona" method="POST" action="SERVPersona">
-            <input type="text" name="txtId" placeholder=" Id de persona" size="30"><br>
-            <input type="text" name="txtNombres" placeholder=" nombres ..." size="30"><br>
-            <input type="text" name="txtApellidos" placeholder="apellidos..." size="30"><br>
-            <input type="text" name="txtEdad" placeholder=" edad ..." size="30"><br><br>
-            <input type="submit" name="btnInsertar" value="Insertar">
-            <input type="submit" name="btnModificar" value="Modificar">
-            <input type="submit" name="btnEliminar" value="Eliminar">   
-            <hr>
+            
             Buscar: <input type="text" name="txtCriterio">
             En base a:<input type="text" name="txtCampo" placeholder="podria ser un select jeje">
             <input type="submit" name="btnFiltrar" value="Filtrar"> 

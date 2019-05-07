@@ -101,7 +101,7 @@ public class PreguntaController extends HttpServlet {
 
     private void index(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         //mostrar(request, response);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/vistaUsuario.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -115,7 +115,7 @@ public class PreguntaController extends HttpServlet {
         Pregunta pregunta = new Pregunta(id, request.getParameter("pregunta"), fecha);
         preguntaDAO.insertarPregunta(pregunta);
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/vistaUsuario.jsp");
         dispatcher.forward(request, response);     
 
     }
@@ -159,7 +159,7 @@ public class PreguntaController extends HttpServlet {
         System.out.println("he lleago hps");
         Pregunta pregunta = preguntaDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
         preguntaDAO.eliminarPregunta(pregunta);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("vistaUsuario.jsp");
         dispatcher.forward(request, response);
 
     }

@@ -30,7 +30,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class UsuarioController extends HttpServlet {
 
-     UsuarioDAOImpl usuarioDAO;
+    UsuarioDAOImpl usuarioDAO;
 
     public void init() {
 
@@ -49,6 +49,7 @@ public class UsuarioController extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -77,7 +78,7 @@ public class UsuarioController extends HttpServlet {
                 case "eliminar":
                     eliminarPregunta(request, response);
                     break;
-                    
+
                 default:
                     break;
             }
@@ -94,7 +95,7 @@ public class UsuarioController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         System.out.println("Hola Servlet..");
         doGet(request, response);
@@ -105,37 +106,32 @@ public class UsuarioController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, response);
     }
+
     private void ingresarSistema(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        System.out.println("llego a registrar "); 
-        
-            
-            List<Usuario> datos = new ArrayList<Usuario>();
+        System.out.println("llego a registrar ");
 
-            
-                String usuario = request.getParameter("usuario");
-                String contra = request.getParameter("clave");
-                datos = usuarioDAO.accesar(usuario, contra);
-                if (datos.size() > 0) {
-                    request.setAttribute("datos", datos);
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
-                } else {
-                    request.setAttribute("fail", "No hay acceso!");
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
-                }
+        List<Usuario> datos = new ArrayList<Usuario>();
 
-            
+        String usuario = request.getParameter("usuario");
+        String contra = request.getParameter("clave");
+        datos = usuarioDAO.accesar(usuario, contra);
+        if (datos.size() > 0) {
+            request.setAttribute("datos", datos);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        } else {
+            request.setAttribute("fail", "No hay acceso!");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
+
     }
 
     private void registrarUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 
-        
-        
-
-        Usuario usuario = new Usuario(0,request.getParameter("usuario"), request.getParameter("clave"));
+        Usuario usuario = new Usuario(0, request.getParameter("usuario"), request.getParameter("clave"));
         preguntaDAO.insertarPregunta(usuario);
-        
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
-        dispatcher.forward(request, response);     
+        dispatcher.forward(request, response);
 
     }
 
@@ -148,7 +144,7 @@ public class UsuarioController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/MostrarPreguntas.jsp");
         List<Pregunta> listaPregunta = preguntaDAO.listarPregunta();
         request.setAttribute("pregunta", listaPregunta);
-        
+
         dispatcher.forward(request, response);
     }
 
@@ -182,7 +178,7 @@ public class UsuarioController extends HttpServlet {
         dispatcher.forward(request, response);
 
     }
-    
+
     @Override
     public String getServletInfo() {
         return "Short description";

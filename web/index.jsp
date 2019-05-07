@@ -15,18 +15,14 @@
             <tr>
                 <td align="center"><a href="ingresar.jsp">Login</a></td>			
             </tr>
-            <tr>
-                <td align="center"><a href="NoticiaController?action=nuevo">Registrar Noticia</a></td>			
-            </tr>
+           
             <tr>
                 <td align="center"><a href="NoticiaController?action=mostrar">Mostrar Noticia</a></td>
             </tr>
             <tr>
                 <td align="center"><a href="ComentariosController?action=mostrarComentarios">Mostrar Comentarios</a></td>
             </tr>
-            <tr>
-                <td align="center"><a href="PreguntaController?action=preguntar">Registrar Preguntas</a></td>
-            </tr>
+            
             <tr>
                 <td align="center"><a href="PreguntaController?action=mostrarPreguntas">Mostrar Preguntas</a></td>
             </tr>
@@ -51,7 +47,7 @@
                     }
                     sesion.setAttribute("usuario", nombrecompleto);
                     sesion.setAttribute("nivel",nivel);
-                    response.sendRedirect("vistaPersona.jsp"); 
+                    response.sendRedirect("vistaUsuario.jsp"); 
                 }
                 if(request.getParameter("cerrar")!=null){
                     sesion.invalidate();
