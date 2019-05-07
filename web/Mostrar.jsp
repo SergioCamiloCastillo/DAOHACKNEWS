@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="css/estilos.css">
+   <link type="text/css" rel="stylesheet" href="estilo.css" />
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -23,6 +23,7 @@
         </table>
 
         <table border="1" width="100%">
+            <thead>
             <tr>
                 <td><strong>ID</strong> </td>
                 <td><strong>TITULO</strong> </td>
@@ -32,6 +33,8 @@
 
                 <td colspan=2></td>
             </tr>
+            </thead>
+            <tbody>
             <c:forEach var="noticias" items="${lista}">
                 <tr>
                     <td><c:out value="${noticias.id}"/></td>
@@ -45,6 +48,7 @@
 
                 </tr>
             </c:forEach>
+            </tbody>
         </table>
 
     </body>

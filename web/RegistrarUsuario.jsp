@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="css/estilos.css">
+   <link type="text/css" rel="stylesheet" href="estilo.css" />
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -20,10 +20,10 @@
         <h1>Registrarse en el sistema</h1>
         <form action='UsuarioController?action=registrarUsuario' method="POST">
             Usuario: 
-            <input type='text' name='txtusuario' id='txtusuario'></br></br>
+            <input class="autocomplete" type='text' name='txtusuario' id='txtusuario'></br></br>
             Clave: 
-            <input type='text' name='txtclave' id='txtclave'></br></br>
-            <input type="submit" name="registrar" value="Registrar"> </br></br>
+            <input class="autocomplete" type='password' name='txtclave' id='txtclave'></br></br>
+            <input class="waves-effect waves-light btn" type="submit" name="registrar" value="Registrar"> </br></br>
 
         </form>
     </body>

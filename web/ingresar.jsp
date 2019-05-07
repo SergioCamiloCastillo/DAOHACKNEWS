@@ -10,6 +10,7 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="css/estilos.css">
+    <link type="text/css" rel="stylesheet" href="estilo.css" />
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,12 +21,12 @@
         <h1>Ingresar al sistema</h1>
         <form action='UsuarioController?action=ingresarSistema' method="POST">
             Usuario: 
-            <input type='text' name='usuario' id='usuario'></br></br>
+            <input class="autocomplete" type='text' name='usuario' id='usuario'></br></br>
             Clave: 
-            <input type='text' name='clave' id='clave'></br></br>
-            <input type="submit" name="registrar" value="Ingresar"> </br></br>
+            <input class="autocomplete" type='password' name='clave' id='clave'></br></br>
+            <input class="waves-effect waves-light btn" type="submit" name="registrar" value="Ingresar"> </br></br>
 
         </form>
-        <a href="RegistrarUsuario.jsp">Registrarse</a>
+        <a class="waves-effect waves-light btn" href="RegistrarUsuario.jsp">Registrarse</a>
     </body>
 </html>

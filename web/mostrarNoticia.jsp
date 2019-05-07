@@ -11,6 +11,7 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="css/estilos.css">
+    <link type="text/css" rel="stylesheet" href="estilo.css" />
 
 <body>
 
@@ -23,6 +24,7 @@
     </table>
 
     <table border="1" width="100%">
+        <thead>
         <tr>
             <td><strong>NOTICIA</strong> </td>
 
@@ -31,6 +33,7 @@
             <td><strong>FECHA</strong> </td>
             <td colspan=2></td>
         </tr>
+        </thead>
         <c:forEach var="fil" items="${filtro}">
             <tr>
                 <td><c:out value="${fil.titulo}"/></td>

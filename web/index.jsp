@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="css/estilos.css">
+   <link type="text/css" rel="stylesheet" href="estilo.css" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
@@ -16,24 +16,13 @@
     </head>
     <body>
         <h1>HackNews</h1>
+         <div class="collection">
+    <a href="ingresar.jsp" class="collection-item"><span class="badge"> </span>Login</a>
+    <a href="NoticiaController?action=mostrarNoticiaPersona" class="collection-item"><span class="badge"></span>Mostrar Noticias</a>
+    <a href="ComentariosController?action=mostrarComentariosPersona" class="collection-item">Mostrar Comentarios</a>
+    <a href="PreguntaController?action=mostrarPreguntasPersona" class="collection-item"><span class="badge"></span>Mostrar Preguntas</a>
+  </div>
         
-        <table border="1" width="50%" align="center">
-            <tr>
-                <td align="center"><a href="ingresar.jsp">Login</a></td>			
-            </tr>
-
-            <tr>
-                <td align="center"><a href="NoticiaController?action=mostrarNoticiaPersona">Mostrar Noticia</a></td>
-            </tr>
-            <tr>
-                <td align="center"><a href="ComentariosController?action=mostrarComentariosPersona">Mostrar Comentarios</a></td>
-            </tr>
-
-            <tr>
-                <td align="center"><a href="PreguntaController?action=mostrarPreguntasPersona">Mostrar Preguntas</a></td>
-            </tr>
-
-        </table>
 
         <%
             HttpSession sesion = request.getSession();

@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link type="text/css" rel="stylesheet" href="estilo.css" />
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -27,7 +27,7 @@
 
 
             <br>
-            <input type="submit" value="Agregar Comentario" name="agregar">	
+            <input class="waves-effect waves-light btn" type="submit" value="Agregar Comentario" name="agregar">	
 
 
         </form>

@@ -5,7 +5,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link type="text/css" rel="stylesheet" href="estilo.css" />
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -38,7 +38,7 @@
 	<br>
 	<table border="0" align="center">
 		<tr>
-		<td><input type="submit" value="Agregar" name="agregar"></td>	
+		<td><input class="waves-effect waves-light btn" type="submit" value="Agregar" name="agregar"></td>	
 		</tr>
 	
 	</form>

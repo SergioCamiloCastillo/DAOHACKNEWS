@@ -5,10 +5,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true" %>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="css/estilos.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+<link type="text/css" rel="stylesheet" href="estilo.css" />
 
 <%
 
@@ -46,10 +46,10 @@ ESTE CODIGO DEBE USARSE SIN FINES LUCRATIVOS Y HACER REFERENCIA AL AUTOR
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Vista Pesona</title>
-        
+
     </head>
 
-  
+
 
     <body>
 
@@ -86,11 +86,11 @@ ESTE CODIGO DEBE USARSE SIN FINES LUCRATIVOS Y HACER REFERENCIA AL AUTOR
 
             Buscar Noticia: <input type="text" name="buscar">
 
-            <input type="submit"  value="Buscar"> 
+            <input class="waves-effect waves-light btn" type="submit"  value="Buscar"> 
 
         </form>
         <hr>  
-        
+
     </center>     
 </body>
 

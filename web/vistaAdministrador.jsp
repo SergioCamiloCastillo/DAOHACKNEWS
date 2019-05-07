@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link type="text/css" rel="stylesheet" href="estilo.css" />
 <% 
 
 HttpSession ses = request.getSession();
@@ -56,9 +56,9 @@ HttpSession ses = request.getSession();
         <form  name="formPersona" method="POST" action="SERVPersona">
             
             Buscar: <input type="text" name="txtCriterio">
-            En base a:<input type="text" name="txtCampo" placeholder="podria ser un select jeje">
+           
             <input type="submit" name="btnFiltrar" value="Filtrar"> 
-             <input type="submit" name="btnReiniciar" value="Reiniciar"> 
+             
         </form>
     <hr>  
        
