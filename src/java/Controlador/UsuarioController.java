@@ -66,8 +66,8 @@ public class UsuarioController extends HttpServlet {
                 case "registrarUsuario":
                     registrarUsuario(request, response);
                     break;
-                case "mostrarPreguntas":
-                    mostrarPregunta(request, response);
+                case "mostrarUsuarios":
+                    mostrarUsuarios(request, response);
                     break;
                 case "showedit":
                     showEditar(request, response);
@@ -126,10 +126,9 @@ public class UsuarioController extends HttpServlet {
     }
 
     private void registrarUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-
-        Usuario usuario = new Usuario(0, request.getParameter("usuario"), request.getParameter("clave"));
-        preguntaDAO.insertarPregunta(usuario);
-
+    
+         Usuario usuario = new Usuario(request.getParameter("txtusuario"), 2,request.getParameter("txtclave"));
+        usuarioDAO.registrarUsuario(usuario);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, response);
 
@@ -140,10 +139,10 @@ public class UsuarioController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void mostrarPregunta(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/MostrarPreguntas.jsp");
-        List<Pregunta> listaPregunta = preguntaDAO.listarPregunta();
-        request.setAttribute("pregunta", listaPregunta);
+    private void mostrarUsuarios(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/MostrarUsuarios.jsp");
+        List<Usuario> listaUsuario = usuarioDAO.listarUsuarios();
+        request.setAttribute("usuario", listaUsuario);
 
         dispatcher.forward(request, response);
     }

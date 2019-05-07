@@ -39,13 +39,13 @@
                 }
                 if(request.getAttribute("datos")!=null){
                     datos = (List<Usuario>)request.getAttribute("datos");
-                    String nombrecompleto="";
+                    String usuario="";
                     int nivel=0;
                     for(Usuario u : datos){
-                        nombrecompleto = u.getNombrecompleto();
+                        usuario= u.getUsuario();
                         nivel = u.getNivel();
                     }
-                    sesion.setAttribute("usuario", nombrecompleto);
+                    sesion.setAttribute("usuario", usuario);
                     sesion.setAttribute("nivel",nivel);
                     response.sendRedirect("vistaUsuario.jsp"); 
                 }

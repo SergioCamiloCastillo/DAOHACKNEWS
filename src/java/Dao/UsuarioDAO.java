@@ -6,6 +6,7 @@
 package Dao;
 
 import Modelo.Noticia;
+import Modelo.Pregunta;
 import Modelo.Usuario;
 import java.sql.SQLException;
 import java.util.List;
@@ -15,8 +16,8 @@ import java.util.List;
  * @author User
  */
 public interface UsuarioDAO {
-    
-     public List<Usuario> accesar(String usuario, String contra) throws SQLException;
+
+    public List<Usuario> accesar(String usuario, String contra) throws SQLException;
 
     public List<Usuario> listarUsuarios() throws SQLException;
 
@@ -26,4 +27,5 @@ public interface UsuarioDAO {
 
     public boolean eliminar(Usuario usuario) throws SQLException;
 
+    public boolean registrarUsuario(Usuario usuario) throws SQLException;
 }

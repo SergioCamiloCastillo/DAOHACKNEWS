@@ -8,10 +8,13 @@ public class Usuario {
     private String contra;
     private int nivel;
 
-    public Usuario(String nombrecompleto, int nivel) {
+    public Usuario(String usuario, int nivel, String contra) {
 
         this.nombrecompleto = nombrecompleto;
         this.nivel = nivel;
+        this.contra=contra;
+        this.usuario=usuario;
+       
     }
 
     public int getNivel() {

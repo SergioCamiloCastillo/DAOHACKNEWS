@@ -15,10 +15,10 @@
         <h1>Registrarse en el sistema</h1>
         <form action='UsuarioController?action=registrarUsuario' method="POST">
             Usuario: 
-            <input type='text' name='usuario' id='usuario'></br></br>
+            <input type='text' name='txtusuario' id='txtusuario'></br></br>
             Clave: 
-            <input type='text' name='clave' id='usuario'></br></br>
-            <input type="submit" name="registrar" value="Ingresar"> </br></br>
+            <input type='text' name='txtclave' id='txtclave'></br></br>
+            <input type="submit" name="registrar" value="Registrar"> </br></br>
 
         </form>
     </body>

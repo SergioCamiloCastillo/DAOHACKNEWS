@@ -32,18 +32,18 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         Connection conn;
         PreparedStatement pst;
         ResultSet rs;
-        String sql = "select nombre_completo, nivelUsuario from usuarios "
+        String sql = "select usuario, nivelUsuario from usuario "
                 + "where usuario='" + usuario + "' and contra='" + contra
                 + "'";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/tutorial", "root", "");
+                    "jdbc:mysql://localhost:3306/hacknews", "root", "");
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             while (rs.next()) {
-                datos.add(new Usuario(rs.getString("nombre_completo"),
-                        rs.getInt("nivelUsuario")));
+                datos.add(new Usuario(rs.getString("usuario"),
+                        rs.getInt("nivelUsuario"),""));
             }
             conn.close();
         } catch (ClassNotFoundException | SQLException e) {
@@ -71,25 +71,49 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     }*/
     // listar todos los productos
     @Override
+    public boolean registrarUsuario(Usuario usuario) throws SQLException {
+        System.out.println(usuario.getUsuario());
+        System.out.println(usuario.getContra());
+       
+        String sql = "INSERT INTO usuario (nombre_completo, usuario, contra, nivelUsuario) VALUES (?,?,?,?)";
+        //String sql = "INSERT INTO comentario (id, comentario, fechacomentario, noticia) VALUES (?,?,?,?)";
+        //System.out.println(articulo.getDescripcion());
+        con.conectar();
+        connection = con.getJdbcConnection();
+        PreparedStatement statement = connection.prepareStatement(sql);
+        //statement.setString(1, pregunta.getId().toString());
+       
+        statement.setString(1, usuario.getUsuario());
+        statement.setString(2, usuario.getUsuario());
+        statement.setString(3, usuario.getContra());
+        statement.setString(4, "2".toString());
+
+        boolean rowInserted = statement.executeUpdate() > 0;
+        statement.close();
+        con.desconectar();
+        return rowInserted;
+    }
+
+    @Override
     public List<Usuario> listarUsuarios() throws SQLException {
 
-        List<Pregunta> listaPreguntas = new ArrayList<Pregunta>();
-        String sql = "SELECT * FROM pregunta";
+        List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+        String sql = "SELECT * FROM usuario";
         con.conectar();
         connection = con.getJdbcConnection();
         Statement statement = connection.createStatement();
         ResultSet resulSet = statement.executeQuery(sql);
 
         while (resulSet.next()) {
-            int id = resulSet.getInt("id");
-            String preguntas = resulSet.getString("pregunta");
-            String fecha = resulSet.getString("fecha");
-
-            Pregunta pregunta = new Pregunta(id, preguntas, fecha);
-            listaPreguntas.add(pregunta);
+            String nombre_completo = resulSet.getString("nombre_completo");
+            String usuarios = resulSet.getString("usuario");
+            String contra = resulSet.getString("contra");
+            int nivel = resulSet.getInt("nivelUsuario");
+            Usuario usuario = new Usuario(usuarios, nivel, contra);
+            listaUsuarios.add(usuario);
         }
         con.desconectar();
-        return listaPreguntas;
+        return listaUsuarios;
     }
 
     // obtener por id
