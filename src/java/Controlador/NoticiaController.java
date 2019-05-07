@@ -125,8 +125,8 @@ public class NoticiaController extends HttpServlet {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         String fecha = dateFormat.format(date);
-        Integer id = Integer.parseInt(request.getParameter("txtId"));
-        Noticia noticia = new Noticia(id, request.getParameter("txtTitulo"), request.getParameter("txtUrl"), request.getParameter("txtTexto"), fecha);
+        //Integer id = Integer.parseInt(request.getParameter("txtId"));
+        Noticia noticia = new Noticia(0, request.getParameter("txtTitulo"), request.getParameter("txtUrl"), request.getParameter("txtTexto"), fecha);
         noticiaDAO.insertar(noticia);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/vistaUsuario.jsp");

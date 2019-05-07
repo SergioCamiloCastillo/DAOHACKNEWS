@@ -15,10 +15,7 @@
 	<h1>Registrar Noticia</h1>
 	<form action="NoticiaController?action=register" method="post">
 		<table border="1" align="center">
-                    <tr>
-			<td>Id:</a></td>		
-			<td><input type="text" name="txtId"/></td>	
-		</tr>
+                    
 		<tr>
 			<td>Titulo:</a></td>		
 			<td><input type="text" name="txtTitulo"/></td>	

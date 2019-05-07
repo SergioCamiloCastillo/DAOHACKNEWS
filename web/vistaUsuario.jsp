@@ -6,7 +6,7 @@
 <%@page session="true" %>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!-- Compiled and minified JavaScript -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 <link type="text/css" rel="stylesheet" href="estilo.css" />
 
@@ -37,11 +37,7 @@
 
 
 <!DOCTYPE html>
-<!--
-CODIGO ELABORADO POR: Ing. Héctor Edmundo González Magaña, ing.edmundogm@gmail.com 
-EMPRESA: Itca-Fepade, Santa Tecla, La Libertar, El Salvador, CA
-ESTE CODIGO DEBE USARSE SIN FINES LUCRATIVOS Y HACER REFERENCIA AL AUTOR
--->
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -59,7 +55,7 @@ ESTE CODIGO DEBE USARSE SIN FINES LUCRATIVOS Y HACER REFERENCIA AL AUTOR
 
 
     <center>
-        <!-- EL FORMULARIO PARA INGRESO DE DADTOS -->
+       
         <h2>Formulario de Registro</h2>
         <tr>
         <table border="1" width="50%" align="center">

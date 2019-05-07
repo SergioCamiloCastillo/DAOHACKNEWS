@@ -126,7 +126,7 @@ public class ComentariosController extends HttpServlet {
         String fecha = dateFormat.format(date);
         Integer id = Integer.parseInt(request.getParameter("txtid"));
 
-        Comentario comentario = new Comentario(id, request.getParameter("comentario"), fecha);
+        Comentario comentario = new Comentario(0, request.getParameter("comentario"), fecha);
         comentarioDAO.insertarComentario(comentario);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/vistaUsuario.jsp");

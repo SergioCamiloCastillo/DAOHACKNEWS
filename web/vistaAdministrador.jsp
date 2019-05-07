@@ -32,7 +32,7 @@ HttpSession ses = request.getSession();
         
         
     <center>
-        <!-- EL FORMULARIO PARA INGRESO DE DADTOS -->
+      
         <h2>Formulario de Registro</h2>
         <tr>
                 <table border="1" width="50%" align="center">

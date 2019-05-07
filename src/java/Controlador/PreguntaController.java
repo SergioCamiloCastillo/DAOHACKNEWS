@@ -123,9 +123,9 @@ public class PreguntaController extends HttpServlet {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         String fecha = dateFormat.format(date);
-        Integer id = Integer.parseInt(request.getParameter("id"));
+        //Integer id = Integer.parseInt(request.getParameter("id"));
 
-        Pregunta pregunta = new Pregunta(id, request.getParameter("pregunta"), fecha);
+        Pregunta pregunta = new Pregunta(0, request.getParameter("pregunta"), fecha);
         preguntaDAO.insertarPregunta(pregunta);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/vistaUsuario.jsp");
@@ -168,7 +168,7 @@ public class PreguntaController extends HttpServlet {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         String fecha = dateFormat.format(date);
-        Pregunta pregunta = new Pregunta(Integer.parseInt(request.getParameter("editarId")), request.getParameter("editarPregunta"), fecha);
+        Pregunta pregunta = new Pregunta(0, request.getParameter("editarPregunta"), fecha);
         System.out.println(Integer.parseInt(request.getParameter("editarId")));
         System.out.println(request.getParameter("editarPregunta"));
         preguntaDAO.actualizarPregunta(pregunta);

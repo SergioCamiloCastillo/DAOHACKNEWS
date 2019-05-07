@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified JavaScript -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <link type="text/css" rel="stylesheet" href="estilo.css" />
 <html>
@@ -22,7 +22,7 @@
 
 
             Comentarios	
-            <input type="text" name="txtid">
+            
             <textarea name="comentario" id="comentario" rows="10" cols="50"></textarea>
 
 
