@@ -150,8 +150,8 @@ public class UsuarioController extends HttpServlet {
     private void showEditar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 
         //Integer id = Integer.parseInt(request.getParameter("id"));
-        Pregunta pregunta = preguntaDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
-        request.setAttribute("pregunta", pregunta);
+        Usuario usuario = usuarioDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
+        request.setAttribute("usuario", usuario);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/EditarPregunta.jsp");
         dispatcher.forward(request, response);
@@ -161,18 +161,18 @@ public class UsuarioController extends HttpServlet {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         String fecha = dateFormat.format(date);
-        Pregunta pregunta = new Pregunta(Integer.parseInt(request.getParameter("editarId")), request.getParameter("editarPregunta"), fecha);
+        Usuario usuario = new Usuario("", 2,"");
         System.out.println(Integer.parseInt(request.getParameter("editarId")));
         System.out.println(request.getParameter("editarPregunta"));
-        preguntaDAO.actualizarPregunta(pregunta);
+        usuarioDAO.actualizar(usuario);
         index(request, response);
 
     }
 
     private void eliminarPregunta(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         System.out.println("he lleago hps");
-        Pregunta pregunta = preguntaDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
-        preguntaDAO.eliminarPregunta(pregunta);
+        Usuario usuario = usuarioDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
+        usuarioDAO.eliminar(usuario);
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
 

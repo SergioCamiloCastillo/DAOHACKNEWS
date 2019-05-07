@@ -118,9 +118,9 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
     // obtener por id
     public Usuario obtenerPorId(int id) throws SQLException {
-        Pregunta pregunta = null;
+       Usuario usuario = null;
 
-        String sql = "SELECT * FROM pregunta WHERE id= ? ";
+        String sql = "SELECT * FROM usuario WHERE id= ? ";
         con.conectar();
         connection = con.getJdbcConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
@@ -128,12 +128,12 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
         ResultSet res = statement.executeQuery();
         if (res.next()) {
-            pregunta = new Pregunta(res.getInt("id"), res.getString("pregunta"), res.getString("fecha"));
+            usuario = new Usuario(res.getString("usuario"), 2, res.getString("contra"));
         }
         res.close();
         con.desconectar();
 
-        return pregunta;
+        return usuario;
     }
 
     // actualizar
@@ -144,9 +144,9 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         connection = con.getJdbcConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
 
-        statement.setString(1, pregunta.getPregunta());
-        statement.setString(2, pregunta.getFecha());
-        statement.setString(3, pregunta.getId().toString());
+        statement.setString(1, usuario.getUsuario());
+        statement.setString(2, usuario.getContra());
+        statement.setString(3, usuario.getNombrecompleto());
 
         rowActualizar = statement.executeUpdate() > 0;
         statement.close();
@@ -161,7 +161,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         con.conectar();
         connection = con.getJdbcConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, pregunta.getId());
+        statement.setInt(1, usuario.getId());
 
         rowEliminar = statement.executeUpdate() > 0;
         statement.close();

@@ -17,7 +17,7 @@
             </tr>
            
             <tr>
-                <td align="center"><a href="NoticiaController?action=mostrar">Mostrar Noticia</a></td>
+                <td align="center"><a href="NoticiaController?action=mostrarNoticiaPersona">Mostrar Noticia</a></td>
             </tr>
             <tr>
                 <td align="center"><a href="ComentariosController?action=mostrarComentarios">Mostrar Comentarios</a></td>
@@ -35,7 +35,7 @@
             
              List<Usuario> datos = new ArrayList<Usuario>();
                 if(request.getAttribute("fail")!=null){
-                    out.print("<script>alert('Ususario o contra erroneos!');</script>   ");
+                    out.print("<script>alert('El usuario y/o la contraseña no se encuentran en la base de datos');</script>   ");
                 }
                 if(request.getAttribute("datos")!=null){
                     datos = (List<Usuario>)request.getAttribute("datos");
